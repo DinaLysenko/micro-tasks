@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {NewComponent} from "./NewComponent";
+import {debug} from "util";
 
 export type MoneyType = {
     banknots: string
@@ -7,8 +8,9 @@ export type MoneyType = {
     number: string
 }
 export type FilterType = 'All'| 'RUBLS' | 'Dollars'
+
 export const Banknots: React.FC = () => {
-    let [money, setMoney] = useState<MoneyType[]>([
+     let [money, setMoney] = useState<MoneyType[]>([
         {banknots: 'Dollars', value: 100, number: ' a1234567890'},
         {banknots: 'Dollars', value: 50, number: ' z1234567890'},
         {banknots: 'RUBLS', value: 100, number: ' w1234567890'},
@@ -32,6 +34,7 @@ export const Banknots: React.FC = () => {
     const onClickFilterHandler = (nameButton: FilterType) => {
         setFilter(nameButton)
     }
+
     return (
         <NewComponent currentMoney={currentMoney} onClickFilterHandler={onClickFilterHandler}/>
     );
